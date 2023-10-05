@@ -17,7 +17,7 @@ const corsOptions = {
   origin: "*",
 };
 
-// database connection
+
 mongoose.set("strictQuery", false);
 const connect = async () => {
   try {
@@ -32,7 +32,7 @@ const connect = async () => {
   }
 };
 
-// middleware
+
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(cookieParser());
