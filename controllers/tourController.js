@@ -1,6 +1,6 @@
 import Tour from "../models/Tour.js";
 
-// create new tour
+
 export const createTour = async (req, res) => {
   const newTour = new Tour(req.body);
 
@@ -19,7 +19,7 @@ export const createTour = async (req, res) => {
   }
 };
 
-// update tour
+
 export const updateTour = async (req, res) => {
   const id = req.params.id;
 
@@ -45,7 +45,7 @@ export const updateTour = async (req, res) => {
   }
 };
 
-// delete tour
+
 export const deleteTour = async (req, res) => {
   const id = req.params.id;
 
@@ -64,7 +64,7 @@ export const deleteTour = async (req, res) => {
   }
 };
 
-// getSingle tour
+
 export const getSingleTour = async (req, res) => {
   const id = req.params.id;
 
@@ -109,15 +109,15 @@ export const getAllTour = async (req, res) => {
   }
 };
 
-// get tour by search
+
 export const getTourBySearch = async (req, res) => {
-  // here 'i' means case sensitive
+  
   const city = new RegExp(req.query.city, "i");
 
   const maxGroupSize = parseInt(req.query.maxGroupSize);
 
   try {
-    // gte means greater than equal
+    
     const tours = await Tour.find({
       city,
       maxGroupSize: { $gte: maxGroupSize },
@@ -136,7 +136,7 @@ export const getTourBySearch = async (req, res) => {
   }
 };
 
-// get featured tour
+
 export const getFeaturedTour = async (req, res) => {
   try {
     const tours = await Tour.find({ featured: true })
@@ -156,7 +156,7 @@ export const getFeaturedTour = async (req, res) => {
   }
 };
 
-// get tour counts
+
 export const getTourCount = async (req, res) => {
   try {
     const tourCount = await Tour.estimatedDocumentCount();
